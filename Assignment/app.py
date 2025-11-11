@@ -41,7 +41,7 @@ def submit():
 
 @app.route('/api')
 def func():
-    data = list(client['mgdb']['formdata'].find({}, {'_id': 0}))
+    data = jsonify(list(client['mgdb']['formdata'].find({}, {'_id': 0})))
     return {'data': data}
 
 if __name__ == '__main__':
