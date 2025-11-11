@@ -44,5 +44,14 @@ def func():
     data = jsonify(list(client['mgdb']['formdata'].find({}, {'_id': 0})))
     return {'data': data}
 
+@app.route('/submittodoitem', methods=['POST'])
+def submittodoitem():
+    try:
+        data = dict(request.form)
+        client['mgdb']['todoitems'].insert_one(data)
+        return render_template("todoitemsuccess.html")
+    except Exception as e:
+        return str(e)
+
 if __name__ == '__main__':
     app.run(debug=True)
