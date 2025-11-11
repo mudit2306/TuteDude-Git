@@ -41,7 +41,7 @@ def submit():
 
 @app.route('/api')
 def func():
-    data = list(client['mgdb']['formdata'].find({}, {'_id': 0}))
+    data = list(client['mgdb']['formdata'].find_one({}, {'_id': 0}))
     data.tolist()
     return {'data': data}
 
